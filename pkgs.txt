@@ -1,4 +1,3 @@
-amd-ucode
 arc-gtk-theme
 baobab
 base
@@ -17,8 +16,6 @@ git
 grim
 grub
 gvfs
-linux-firmware
-linux-lts
 mako
 man-db
 mission-center
