@@ -1,7 +1,7 @@
 {
   "modules-left": ["sway/workspaces", "sway/window"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "backlight", "network", "battery"],
+  "modules-right": ["bluetooth","pulseaudio", "backlight", "network", "battery"],
   "clock": {
     "tooltip-format": "<big>{calendar}</big>",
     "format": "{:%H:%M}"
@@ -26,8 +26,17 @@
     "format-alt": "{time} {icon}",
     "format-icons": ["", "", "", "", ""]
   },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "",
+    "format-connected": " connected",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueberry"
+  },
   "pulseaudio": {
-    "format": "{volume}% {icon} {format_source}",
+    "format": "{volume}% {icon}  {format_source}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": "󰝟 {icon} {format_source}",
     "format-muted": "󰝟 {format_source}",

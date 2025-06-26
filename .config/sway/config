@@ -34,6 +34,10 @@ set $cursor_size 24
 
 set $satty satty -f - --initial-tool=arrow
 
+# Session Termination
+
+set $leave ~/.config/rofi/powermenu.sh
+
 # Background Execs
 
 exec dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
@@ -43,61 +47,33 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 seat seat0 xcursor_theme $cursor_theme $cursor_size
 
 # Wallpaper
-output * bg /home/Om/Pictures/Wallpapers/14.jpg fill
+output * bg ~/Pictures/Wallpapers/14.jpg fill
 
 # Clipboard Manager
 exec wl-paste --watch cliphist store
 
-### Output configuration
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Idle configuration
-#
-# Example configuration:
-#
+# Idle configuration
 exec swayidle -w \
          timeout 300 'swaylock -f' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
 # Notification Daemon
+
 exec mako
 
-### Input configuration
-#
-# Example configuration:
-#
+# Input configuration
 input "1267:12448:ELAN072B:00_04F3:30A0_Touchpad" {
     dwt enabled
     tap enabled
     natural_scroll enabled
     middle_emulation enabled
 }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
 
+### Styling
 
 gaps inner 5
-# gaps outer 1
-
-smart_gaps off
-
 default_border pixel 2
-# default_floating_border pixel 2
-
-# No gaps for floating windows
-# for_window [floating] gaps inner 0
-# for_window [floating] gaps outer 0
 
 ### Key bindings
 #
@@ -176,6 +152,13 @@ default_border pixel 2
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    
+    # Toggle workspaces
+    bindsym $mod+grave workspace back_and_forth
+    
+    # Switch to prev/next workspace on all outputs
+    bindsym $mod+tab workspace next
+    bindsym $mod+Shift+tab workspace prev
 #
 # Layout stuff:
 #
@@ -259,16 +242,23 @@ bindsym $mod+r mode "resize"
     # Clipboard Manager
 
     bindsym $mod+v exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+
+    # Session Options
+
+    bindsym $mod+f4 exec $leave
 #
 
 # Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
+
 bar {
     swaybar_command waybar
 }
 
+# Sway internal config
 include /etc/sway/config.d/*
+
+# Output device config
 include ~/.config/sway/outputs
 
+# Input Device config
 include ~/.config/sway/.generated_settings/*.conf

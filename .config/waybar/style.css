@@ -72,6 +72,9 @@ widget > * {
 
 .modules-center > widget > * {
   color: #cfcfcf;
+  /* background-color: #556F7A;
+  border-radius: 5px 5px 5px 5px;
+  padding: 0 20px; */
 }
 
 #mode {
