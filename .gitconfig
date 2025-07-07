@@ -1,1 +1,3 @@
-/home/om/.gitconfig
+[user]
+	email = om.mehta@students.iiit.ac.in
+	name = OM6978

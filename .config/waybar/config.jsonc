@@ -1,0 +1,99 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 10,
+  "modules-left": ["battery","clock"],
+  "modules-center": ["sway/workspaces"],
+  "modules-right": ["pulseaudio","backlight","bluetooth","network"],
+
+  "height": 36,
+
+  "clock": {
+    "format": "󰥔  {:%I:%M %p}",
+    "tooltip-format": "{:%A | %d-%m-%Y}"
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% {icon}  {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": "󰝟 {icon} {format_source}",
+    "format-muted": "󰝟 {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "󱠰",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "hands-free": "󱠰",
+      "headset": "󰋎",
+      "phone": "",
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰢝",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "Connected ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰈀",
+    "format-disconnected": "Disconnected 󱛅",
+    "tooltip-format": "{ifname} via {gwaddr} 󰛳",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click": "foot -e 'nmtui'"
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-on": "󰂲",
+    "format-disabled": "󰂲",
+	  "format-connected": " {device_alias}",
+	  "format-connected-battery": "󰂱 {device_alias}",
+    "on-click": "blueman-manager"
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}  {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"]
+  },
+
+  "custom/weather": {
+    "exec": "${HOME}/.config/waybar/scripts/get_weather.sh",
+    "return-type": "text",
+    "format": "  {}",
+    "tooltip": false,
+    "interval": 3600
+  },
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "persistent-workspaces": {
+        "1" : "1",
+        "2" : "2",
+        "3" : "3",
+        "4" : "4",
+        "5" : "5",
+        "6" : "6"
+    }
+  },
+  "custom/drun": {
+    "format": "󰣇",
+    "tooltip": false,
+    "on-click": "rofi -show drun"
+  }
+}
