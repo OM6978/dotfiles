@@ -1,0 +1,212 @@
+
+/* Colors */
+@import url("/home/om/.config/swaync/colors.css");
+
+/* Config */
+
+* {
+    font-family: "JetbrainsMono Nerd Font";
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Notification */
+
+.notification {
+    background: @background;
+    color: @foreground;
+    padding: 10px;
+    border: none;
+    box-shadow: none;
+}
+
+.body {
+  color: @foreground;
+}
+
+.summary {
+  background: transparent;
+  color: @foreground;
+  text-shadow: none;
+}
+
+.time {
+  background: transparent;
+  color: @foreground;
+  text-shadow: none;
+  margin-right: 18px;
+}
+
+.close-button {
+  background-color: @background;
+  color: @foreground;
+  margin-top: 5px;
+  margin-right: 5px;
+  border-radius: 6px;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+    color: @foreground;
+    background: transparent;
+    border: none;
+}
+
+.notification.critical progress {
+  background-color: @foreground;
+}
+
+.notification.low progress,
+.notification.normal progress {
+  background-color: @color1;
+}
+
+/* Control Center */
+
+.control-center {
+    background-color: @background;
+    color: @foreground;
+    border: 1px solid @color2;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Notifications expanded-group */
+
+/* .notification-group {
+  margin: 2px 8px 2px 8px;
+} */
+
+.notification-group-icon {
+  color: @foreground;
+}
+
+.notification-group-headers {
+  color: @foreground;
+}
+
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+  background: @color1;
+  color: @fontaltcolor;
+  margin: 4px; 
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.notification-group-collapse-button:hover,
+.notification-group-close-all-button:hover {
+  background: @foreground;
+  color: @background-alt;
+}  
+
+
+/* widget title */
+.widget-title {
+  color: @foreground;
+}
+.widget-title>button {
+  font-size: 1rem;
+  color: @foreground;
+  background: @background-alt;
+  box-shadow: none;
+}
+
+.widget-title>button:hover {
+  background: @foreground;
+  color: @fontaltcolor;
+}
+
+/* widget button grid */
+button {
+    border: 0px;
+    min-width: 35px;
+    background: @background-alt;
+}
+
+.widget-buttons-grid {
+  background: @background-alt-darker;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    color: @foreground;
+    margin: 8px;
+    padding: 10px;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background: alpha(@foreground, 0.55);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+  background: @color1;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked label {
+    color: @foreground;
+}
+
+/* dnd widget */
+.widget-dnd {
+  background: transparent;
+  font-size: x-large;
+  color: @foreground;
+}
+
+.widget-dnd>switch {
+  background: @background-alt;
+  color: @foreground;
+  border-radius: 16px;
+}
+
+.widget-dnd>switch:checked {
+  background: @foreground;
+  border: 1px solid @foreground;
+}
+
+
+/* volume & backlight widget */
+
+.widget-volume {
+  background: @background-alt;
+  color: @foreground;
+  font-size: x-large;
+}
+
+.widget-backlight {
+  background: @background-alt;
+  color: @foreground;
+  font-size: x-large;
+}
+
+/* music player widget */
+.widget-mpris {
+  background: transparent;
+  margin: 0px;
+}
+
+.widget-mpris button {
+  background-color: transparent;
+  border-radius: 6px;
+}
+
+.widget-mpris button:hover {
+  background-color: @color1;
+  color: @foreground;
+}
+
+
+/* sliders in backlight and volume */
+
+trough slider {
+    background: @foreground;
+}
+
+trough slider:hover {
+    background: @color2;
+}
+
+
+trough highlight {
+  background: @color1;
+}

@@ -47,7 +47,8 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 seat seat0 xcursor_theme $cursor_theme $cursor_size
 
 # Wallpaper
-output * bg ~/Pictures/Wallpapers/0kvzhru1ncua1.jpg fill
+# output * bg ~/Pictures/Wallpapers/0kvzhru1ncua1.jpg fill
+exec waypaper --restore
 
 # Clipboard Manager
 exec wl-paste --watch cliphist store
@@ -60,7 +61,7 @@ exec swayidle -w \
 
 # Notification Daemon
 
-exec mako
+exec swaync
 
 # Input configuration
 input "1267:12448:ELAN072B:00_04F3:30A0_Touchpad" {
@@ -72,12 +73,14 @@ input "1267:12448:ELAN072B:00_04F3:30A0_Touchpad" {
 
 ### Styling
 
-gaps inner 10
+gaps inner 8
 
 ## Border thickness
 set $border_size 1
 default_border pixel $border_size
 default_floating_border pixel $border_size
+
+# corner_radius 0
 
 ## Colours
 set $focused #bfbfbf
@@ -100,10 +103,10 @@ client.background        $base03
     bindsym $mod+Return exec $term
     
     # Start Browser
-    bindsym $mod+t exec firefox
+    bindsym $mod+b exec firefox
 
     # Start File Explorer
-    bindsym $mod+n exec Thunar
+    bindsym $mod+t exec Thunar
 
     # Kill focused window
     bindsym $mod+q kill
@@ -182,7 +185,7 @@ client.background        $base03
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
+    bindsym $mod+n splith
     bindsym $mod+l splitv
 
     # Switch the current container between different layout styles
@@ -267,7 +270,14 @@ bindsym $mod+r mode "resize"
     # Session Options
 
     bindsym $mod+f4 exec $leave
+
+    # Toggle control center
+    bindsym $mod+Shift+n exec swaync-client -t -sw
 #
+
+for_window [app_id="nwg-displays"] floating enable , resize set 1000 400
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="blueman-manager"] floating enable , resize set 600 400
 
 # Status Bar:
 

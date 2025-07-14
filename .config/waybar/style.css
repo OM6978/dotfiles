@@ -3,31 +3,31 @@
 * {
   font-family: "JetBrainsMono Nerd Font", sans-serif;
   font-size: 14px;
-  border-radius: 0px;
+  border-radius: 5px;
   font-weight: 500;
 }
 
-window#waybar {
-  background-color: transparent;
+#waybar {
+  background-color: @background;
   color: @foreground;
+  border: 1px solid @color2;
+  border-radius: 5px;
 }
 
 #workspaces {
-  background-color: @background;
-  padding: 2px 2px 2px 2px;
-  border-radius: 0px;
+  background-color: transparent;
+  margin: 0.3em 0;
 }
 
 #workspaces button.focused {
   background-color: @color1;
   color: @foreground;
-  border-bottom: none;
-  border: 0px solid #4B5669;
+  border: 0px solid #848e9c;
 }
 
 #workspaces button.active:hover {
-  color: @background;
-  background: @color1;
+  color: @color1;
+  background: @color2;
 }
 
 #workspaces button.empty {
@@ -35,11 +35,13 @@ window#waybar {
 }
 
 #workspaces button {
-  background-color: @background;
+  background-color: transparent;
   color: @foreground;
   border: none;
   box-shadow: none;
   text-shadow: none;
+  padding: 0px 15px;
+  margin: 0 0.1em;
 }
 
 
@@ -53,46 +55,28 @@ window#waybar {
 }
 
 .modules-center > widget > *{
-  border: 1px solid #848e9c;
+  border: 0px solid #848e9c;
 }
 
 .modules-left > widget > * {
-  border: 1px solid #848e9c;
+  border: 0px solid #848e9c;
 }
 
 .modules-right > widget > * {
-  border: 1px solid #848e9c;
+  border: 0px solid #848e9c;
 }
 
 #battery,
+#clock,
+#window,
 #pulseaudio,
 #backlight,
-#custom-pacman,
 #network,
 #bluetooth,
-#clock,
-#custom-weather,
-#custom-drun,
-#custom-media,
-#window,
-#cpu,
-#memory,
-#disk,
-#tray,
-#custom-launcher,
-#custom-notification,
-#power-profiles-daemon {
+#custom-swaync {
   color: @foreground;
-  background-color: @background;
-  padding: 0 15px 0 15px;
-  margin: 0 12px;
-}
-
-#pulseaudio,
-#backlight,
-#network,
-#bluetooth {
-  margin : 0 6;
+  background-color: transparent;
+  padding: 0 22px 0 22px;
 }
 
 #window.hidden {
@@ -102,9 +86,5 @@ window#waybar {
     padding: 0;
     margin: 0;
     border: none;
-}
-
-window#waybar.empty #window {
-    background-color: transparent;
 }
 

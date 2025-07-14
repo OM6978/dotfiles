@@ -1,12 +1,24 @@
 {
-  "layer": "top",
-  "position": "top",
-  "margin-top": 10,
-  "modules-left": ["battery","clock"],
+  "mode": "dock",
+  "position": "bottom",
+  "margin-bottom": 5,
+  "margin-left": 8,
+  "margin-right": 8,
+  "modules-left": ["clock","sway/window","custom/swaync"],
   "modules-center": ["sway/workspaces"],
-  "modules-right": ["pulseaudio","backlight","bluetooth","network"],
+  "modules-right": ["pulseaudio","backlight","bluetooth","network","battery"],
 
   "height": 36,
+  
+  "sway/window": {
+    "format": "󰣇 : {title}",
+    "format-alt": "󰣇 : {title}",
+    "hide-empty": true,
+    "hide-empty-text": true,
+	"tooltip": true,     // Shows full title on hover
+	"max-length": 50,    // Truncates the title if too long
+	"on-click": "swaymsg kill"
+  },
 
   "clock": {
     "format": "󰥔  {:%I:%M %p}",
@@ -64,6 +76,8 @@
     "format-disabled": "󰂲",
 	  "format-connected": " {device_alias}",
 	  "format-connected-battery": "󰂱 {device_alias}",
+    "tooltip-format": "{controller_alias} - {device_alias} - {device_battery_percentage}% 󰥉",
+    "tooltip": true,
     "on-click": "blueman-manager"
   },
 
@@ -80,6 +94,7 @@
     "tooltip": false,
     "interval": 3600
   },
+
   "sway/workspaces": {
     "disable-scroll": true,
     "persistent-workspaces": {
@@ -95,5 +110,27 @@
     "format": "󰣇",
     "tooltip": false,
     "on-click": "rofi -show drun"
-  }
+  },
+
+  "custom/swaync": {
+    "tooltip": true,
+    "tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='#e67e80'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='#e67e80'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='#e67e80'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='#e67e80'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
 }
