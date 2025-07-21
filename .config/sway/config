@@ -275,9 +275,9 @@ bindsym $mod+r mode "resize"
     bindsym $mod+Shift+n exec swaync-client -t -sw
 #
 
-for_window [app_id="nwg-displays"] floating enable , resize set 1000 400
+for_window [app_id="nwg-displays"] floating enable
 for_window [app_id="pavucontrol"] floating enable
-for_window [app_id="blueman-manager"] floating enable , resize set 600 400
+for_window [app_id="blueman-manager"] floating enable
 
 # Status Bar:
 

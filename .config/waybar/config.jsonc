@@ -4,7 +4,7 @@
   "margin-bottom": 5,
   "margin-left": 8,
   "margin-right": 8,
-  "modules-left": ["clock","sway/window","custom/swaync"],
+  "modules-left": ["clock","sway/window"],
   "modules-center": ["sway/workspaces"],
   "modules-right": ["pulseaudio","backlight","bluetooth","network","battery"],
 
@@ -59,7 +59,7 @@
   },
   "network": {
     "format": "{ifname}",
-    "format-wifi": "Connected ",
+    "format-wifi": "{essid} ",
     "format-ethernet": "{ipaddr}/{cidr} 󰈀",
     "format-disconnected": "Disconnected 󱛅",
     "tooltip-format": "{ifname} via {gwaddr} 󰛳",
@@ -84,7 +84,8 @@
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon}  {percent}%",
-    "format-icons": ["󰃞", "󰃟", "󰃠"]
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-click": "sleep 0.1 && swaync-client -t -sw"
   },
 
   "custom/weather": {
