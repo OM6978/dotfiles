@@ -1,15 +1,32 @@
 {
+  "ipc": true,
   "mode": "dock",
   "position": "bottom",
   "margin-bottom": 5,
-  "margin-left": 8,
-  "margin-right": 8,
-  "modules-left": ["clock","sway/window"],
-  "modules-center": ["sway/workspaces"],
-  "modules-right": ["pulseaudio","backlight","bluetooth","network","battery"],
+  "margin-left": 10,
+  "margin-right": 10,
+  "modules-left": ["battery","clock","mpris"],
+  "modules-center": ["niri/workspaces"],
+  "modules-right": ["pulseaudio","backlight","bluetooth","network"],
 
-  "height": 36,
+  "height": 40,
   
+  "mpris": {
+    "format": "{player_icon} - {dynamic}",
+    "format-paused": "{status_icon} -  <i>{dynamic}</i>",
+    "player-icons": {
+      "default": "⏸",
+      "mpv": ""
+    },
+    "status-icons": {
+      "paused": "▶"
+    },
+    "max-length": 50,
+    "interval": 1,
+    "tooltip": true,
+    "tooltip-format": "{status}"
+  },
+
   "sway/window": {
     "format": "󰣇 : {title}",
     "format-alt": "󰣇 : {title}",

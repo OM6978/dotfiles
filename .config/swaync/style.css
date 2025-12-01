@@ -1,6 +1,6 @@
 
 /* Colors */
-@import url("/home/om/.config/swaync/colors.css");
+@import url("/home/om/.config/waybar/colors-waybar.css");
 
 /* Config */
 
@@ -152,13 +152,15 @@ button {
 }
 
 .widget-dnd>switch {
-  background: @background-alt;
+  background: @color3;
   color: @foreground;
   border-radius: 16px;
+  padding: 0px 10px 0px 0px;
 }
 
 .widget-dnd>switch:checked {
   background: @color2;
+  padding: 0px 0px 0px 10px;
 }
 
 /* volume & backlight widget */
@@ -204,5 +206,5 @@ trough slider:hover {
 
 
 trough highlight {
-  background: @color1;
+  background: @color3;
 }
