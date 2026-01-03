@@ -73,7 +73,7 @@ input "1267:12448:ELAN072B:00_04F3:30A0_Touchpad" {
 
 ### Styling
 
-gaps inner 8
+gaps inner 10
 
 ## Border thickness
 set $border_size 1
@@ -278,6 +278,11 @@ bindsym $mod+r mode "resize"
 for_window [app_id="nwg-displays"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="blueman-manager"] floating enable
+
+# Additional Gestures
+
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
 
 # Status Bar:
 
