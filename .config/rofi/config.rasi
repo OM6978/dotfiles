@@ -193,8 +193,8 @@ element normal.active {
     text-color:                  var(active-foreground);
 }
 element selected.normal {
-    background-color:            var(alternate-background);
-    text-color:                  var(foreground-colour);
+    background-color:            var(background-alt);
+    text-color:                  var(foreground);
     border:                      0px solid;
 }
 element selected.urgent {

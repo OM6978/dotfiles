@@ -19,7 +19,7 @@ rofi_cmd() {
 	rofi -dmenu \
 		-p "  $USER" \
 		-mesg "  Uptime: $uptime" \
-		-theme /home/om/.config/rofi/powermenu.rasi
+		-theme ~/.config/rofi/powermenu.rasi
 }
 
 # Confirmation CMD
@@ -32,7 +32,7 @@ confirm_cmd() {
 		-dmenu \
 		-p 'Confirmation' \
 		-mesg 'Are you Sure?' \
-		-theme /home/om/.config/rofi/powermenu.rasi
+		-theme ~/.config/rofi/powermenu.rasi
 }
 
 # Ask for confirmation
